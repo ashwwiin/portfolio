@@ -1,60 +1,57 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
+import { Github, Instagram, Mail } from "lucide-react";
 
 export default function Footer() {
+  const socialLinks = [
+    { name: "Instagram", icon: Instagram, href: "https://instagram.com/ashwiiiiiinnnnnn" },
+    { name: "GitHub", icon: Github, href: "https://github.com/ashwwiin" },
+    { name: "Email", icon: Mail, href: "mailto:ashwinthamban22@gmail.com" },
+  ];
+
   return (
     <footer className="relative border-t border-slate-200/50 dark:border-slate-800/50 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white dark:from-black dark:via-slate-950 dark:to-black">
-      {/* Subtle gradient accent */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-50/30 dark:to-slate-900/30 -z-10" />
+      <div className="relative py-8 px-6">
+        {/* Centered Content */}
+        <div className="max-w-md mx-auto text-center space-y-4">
+          {/* Social Icons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center justify-center gap-4"
+          >
+            {socialLinks.map((social, index) => {
+              const Icon = social.icon;
+              return (
+                <motion.a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-accent text-slate-600 dark:text-slate-400 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md"
+                  aria-label={social.name}
+                >
+                  <Icon className="w-5 h-5" />
+                </motion.a>
+              );
+            })}
+          </motion.div>
 
-      <div className="py-16 px-8 md:px-16 lg:px-24">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
-          {/* Branding */}
-          <div>
-            <h3 className="text-2xl font-black tracking-tighter mb-2">
-              Ashwin <span className="gradient-text">Thamban</span>
-            </h3>
-            <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">
-              Frontend Developer • {new Date().getFullYear()}
-            </p>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex items-center gap-6">
-            <a
-              href="https://github.com/ashwwiin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 transition-all"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/ashwin-thamban-0a7b45222"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 transition-all"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="mailto:ashwinthamban22@gmail.com"
-              className="btn-primary px-5 py-2 text-sm"
-            >
-              Email Me
-            </a>
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300 dark:via-slate-700 to-transparent mb-8" />
-
-        {/* Copyright */}
-        <div className="text-center">
-          <p className="text-slate-500 dark:text-slate-400 text-sm">
-            Built with <span className="text-red-500">♥</span> using Next.js & Tailwind CSS
-          </p>
+          {/* Copyright with Name */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-slate-500 dark:text-slate-400 text-xs font-medium"
+          >
+            © {new Date().getFullYear()} Ashwin Thamban. All rights reserved
+          </motion.p>
         </div>
       </div>
     </footer>

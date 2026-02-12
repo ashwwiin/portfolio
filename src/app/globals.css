@@ -71,10 +71,27 @@ body {
    ============================================ */
 
 .gradient-text {
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* Accent-based utility classes */
+.bg-accent {
+  background-color: var(--color-primary);
+}
+
+.bg-accent-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary) 100%);
+}
+
+.text-accent {
+  color: var(--color-primary);
+}
+
+.border-accent {
+  border-color: var(--color-primary);
 }
 
 .gradient-border {

@@ -85,21 +85,23 @@ export default function Experience() {
           Career
         </span>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="relative z-10 flex items-center gap-4"
-        >
-          <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white uppercase tracking-tighter leading-none">
-            Work <span className="gradient-text">Experience</span>
-          </h2>
-          <div className="h-[2px] w-12 md:w-24 rounded-full bg-gradient-to-r from-purple-500 to-blue-500" />
-        </motion.div>
+        <div className="relative z-10 w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap items-center gap-4"
+          >
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white uppercase tracking-tighter leading-none">
+              Work <span className="gradient-text">Experience</span>
+            </h2>
+            <div className="h-[2px] w-12 md:w-24 rounded-full bg-accent" />
+          </motion.div>
 
-        <p className="text-[10px] md:text-xs font-bold text-slate-400 dark:text-slate-600 uppercase tracking-[0.5em] mt-3 ml-1">
-          Professional Journey
-        </p>
+          <p className="text-[10px] md:text-xs font-bold text-slate-400 dark:text-slate-600 uppercase tracking-[0.5em] mt-3 ml-1">
+            Professional Journey
+          </p>
+        </div>
       </div>
 
       {/* Timeline Container */}
@@ -124,7 +126,7 @@ export default function Experience() {
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 + 0.2 }}
-                className="hidden md:block absolute left-9 top-8 w-5 h-5 rounded-full border-4 border-white dark:border-black bg-gradient-to-r from-purple-600 to-blue-600 shadow-lg z-10"
+                className="hidden md:block absolute left-9 top-8 w-5 h-5 rounded-full border-4 border-white dark:border-black bg-accent shadow-lg z-10"
               />
 
               {/* Horizontal Connector - Hidden on mobile */}
