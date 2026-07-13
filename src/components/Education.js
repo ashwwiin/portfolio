@@ -9,7 +9,8 @@ export default function Education() {
       degreeShort: "MCA",
       institution: "Ramaiah Institute of Technology",
       score: "9.08",
-      metric: "CGPA"
+      metric: "CGPA",
+      gradient: "from-purple-500 to-blue-500"
     },
     {
       year: "2019 - 2022",
@@ -17,7 +18,8 @@ export default function Education() {
       degreeShort: "BCA",
       institution: "Kannur University",
       score: "7.34",
-      metric: "CGPA"
+      metric: "CGPA",
+      gradient: "from-blue-500 to-cyan-500"
     }
   ];
 

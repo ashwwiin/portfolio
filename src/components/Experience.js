@@ -11,6 +11,18 @@ export default function Experience() {
 
   const experiences = [
     {
+      company: "Freelancing",
+      role: "FullStack Developer",
+      period: "2025 - Present",
+      type: "Contract",
+      description: [
+        "Developed a dynamic,fully responsive e-commerce web application for a pharmaceutical client using Next.js and Supabase, optimizing frontend performance and ensuring secure data handling",
+        "Integrated a secure payment gateway integration (Razorpay) to facilitate seamless, compliant transactions, incorporating real-time order tracking and automated confirmation workflows.",
+        "Architected relational database schemas in Supabase for user authentication, product inventories, and transaction logs, implementing Row Level Security (RLS) to safeguard sensitive user data.",
+        "Designed a modern, mobile-first user interface focusing on high performance, clean navigation, and accessibility standards required for medical platforms."
+      ]
+    },
+    {
       company: "Donyati India Private Ltd",
       role: "Software Engineer",
       period: "2024 - 2025",

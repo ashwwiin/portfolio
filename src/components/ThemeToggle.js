@@ -148,7 +148,7 @@ export default function ControlCenter() {
           <circle
             cx="28" cy="28" r="26"
             fill="none"
-            stroke="var(--primary-accent)"
+            stroke="var(--color-primary)"
             strokeWidth="1.5"
             strokeDasharray="163"
             className="transition-all duration-1000 opacity-20"
