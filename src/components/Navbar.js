@@ -45,7 +45,8 @@ export default function Navbar() {
             : "bg-white/60 dark:bg-black/60 backdrop-blur-md py-3"
         }`}
       >
-        <div className="px-4 sm:px-6 md:px-12 lg:px-16 max-w-7xl mx-auto">
+        {/* Full-width container on larger screens */}
+        <div className="w-full px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16">
           <div className="flex items-center justify-between h-12 sm:h-14">
 
             {/* Logo */}
