@@ -14,7 +14,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white dark:from-black dark:via-slate-950 dark:to-black pt-28 sm:pt-32 pb-12 sm:pb-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white dark:from-black dark:via-slate-950 dark:to-black pt-24 sm:pt-32 pb-12 sm:pb-16">
       {/* Multi-layer animated background */}
       <div className="absolute inset-0 -z-10">
         {/* Large morphing blobs */}
@@ -76,8 +76,41 @@ export default function Hero() {
       >
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-          {/* Left side - Text content */}
-          <div className="text-center lg:text-left">
+          {/* Top on Mobile, Right on Desktop - Professional Photo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="order-1 lg:order-2 flex items-center justify-center relative mb-4 lg:mb-0"
+          >
+            <div className="relative w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 max-w-full aspect-square">
+              {/* Photo container with gradient border */}
+              <motion.div
+                className="absolute inset-0 rounded-full p-1.5"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.6), rgba(59, 130, 246, 0.6), rgba(6, 182, 212, 0.6))',
+                }}
+              >
+                <div className="w-full h-full rounded-full bg-white dark:bg-black p-1.5 sm:p-2">
+                  <motion.div
+                    className="w-full h-full rounded-full overflow-hidden shadow-2xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 relative"
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <img
+                      src="/images/photo.jpg"
+                      alt="Ashwin Thamban"
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: '50% 30%' }}
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Bottom on Mobile, Left on Desktop - Text content */}
+          <div className="order-2 lg:order-1 text-center lg:text-left">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -187,38 +220,6 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right side - Professional Photo (Responsive on both Mobile & Desktop) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="flex items-center justify-center relative mt-6 lg:mt-0"
-          >
-            <div className="relative w-56 h-56 sm:w-80 sm:h-80 md:w-96 md:h-96 max-w-full aspect-square">
-              {/* Photo container with gradient border */}
-              <motion.div
-                className="absolute inset-0 rounded-full p-1.5"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.6), rgba(59, 130, 246, 0.6), rgba(6, 182, 212, 0.6))',
-                }}
-              >
-                <div className="w-full h-full rounded-full bg-white dark:bg-black p-1.5 sm:p-2">
-                  <motion.div
-                    className="w-full h-full rounded-full overflow-hidden shadow-2xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 relative"
-                    whileHover={{ scale: 1.03 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <img
-                      src="/images/photo.jpg"
-                      alt="Ashwin Thamban"
-                      className="w-full h-full object-cover"
-                      style={{ objectPosition: '50% 30%' }}
-                    />
-                  </motion.div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
         </div>
       </motion.div>
     </section>
