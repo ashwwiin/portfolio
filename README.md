@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 Ashwin Thamban — Modern Portfolio & AshAI Assistant
 
-## Getting Started
+A high-performance, ultra-modern developer portfolio built with **Next.js 14**, **Tailwind CSS**, **Framer Motion**, and an integrated draggable AI assistant named **AshAI** powered by **Google Gemini 3.6** & **Pollinations AI**.
 
-First, run the development server:
+![Portfolio Preview](https://img.shields.io/badge/Status-Live-emerald?style=for-the-badge)
+![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?style=for-the-badge&logo=tailwind-css)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-purple?style=for-the-badge&logo=framer)
+![Google Gemini](https://img.shields.io/badge/Google_Gemini-3.6_Flash-blue?style=for-the-badge&logo=google-gemini)
 
+---
+
+## ✨ Key Features
+
+### 🤖 AshAI — Draggable AI Assistant
+- **Ultra-Fast Latency (~1s)**: Powered by `gemini-flash-lite-latest` serverless route handler for instant responses.
+- **Draggable & Expandable UI**: Floating widget that can be dragged anywhere on screen or expanded for full view.
+- **💻 One-Click Code Snippets**: Formats generated code into dark code containers with one-click copy functionality.
+- **🎨 Real-Time AI Image Generation**: Generates custom artwork on-the-fly using Pollinations AI with instant download links.
+- **Quick Suggestion Prompts**: One-click chips for tech stack, work experience, featured projects, and contact info.
+
+### 🎨 Customization & Aesthetics
+- **Navbar Theme & Accent Selector**: Live theme switcher (Light/Dark mode) with 6 dynamic accent color palettes.
+- **Fullscreen Glassmorphism Mobile Menu**: Agency-grade mobile overlay menu with zero background bleed-through.
+- **Fluid Desktop Navbar**: Edge-to-edge full-width top navigation header on large displays.
+
+### 📱 Responsive & Performant
+- **Mobile-First Layout**: Optimized DOM ordering (Badge ➔ Profile Photo ➔ Headline) on mobile devices.
+- **Smooth Animations**: Powered by Framer Motion scroll triggers, particle effects, and morphing background blobs.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 14 (App Router)](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **AI Core**: [Google Gemini API (`@google/genai`)](https://ai.google.dev/)
+- **Image Generation**: [Pollinations AI](https://pollinations.ai/)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+---
+
+## 🚀 Quick Start
+
+### 1. Prerequisites
+Make sure you have **Node.js 18+** and **npm** installed on your system.
+
+### 2. Clone Repository & Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/ashwwiin/portfolio.git
+cd portfolio
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Set Up Environment Variables
+Create a `.env.local` file in the root directory and add your Google Gemini API key:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 4. Run Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser to view your live portfolio!
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🌐 Deploying to Vercel
 
-To learn more about Next.js, take a look at the following resources:
+When hosting your portfolio on **Vercel**:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Import your GitHub repository into Vercel.
+2. Go to **Project Settings ➔ Environment Variables**.
+3. Add the following variable:
+   - **Key**: `GEMINI_API_KEY`
+   - **Value**: `your_gemini_api_key`
+4. Click **Save** and trigger a **Redeploy**.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 👤 Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Ashwin Thamban**  
+- Portfolio: [Ashwin Thamban](https://github.com/ashwwiin/portfolio)
+- GitHub: [@ashwwiin](https://github.com/ashwwiin)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+⭐ *If you like this portfolio and AshAI assistant, feel free to star the repo!*
