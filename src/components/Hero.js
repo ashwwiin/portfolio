@@ -13,6 +13,32 @@ export default function Hero() {
     setMounted(true);
   }, []);
 
+  const ProfilePhoto = () => (
+    <div className="relative w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 max-w-full aspect-square">
+      <motion.div
+        className="absolute inset-0 rounded-full p-1.5"
+        style={{
+          background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.6), rgba(59, 130, 246, 0.6), rgba(6, 182, 212, 0.6))',
+        }}
+      >
+        <div className="w-full h-full rounded-full bg-white dark:bg-black p-1.5 sm:p-2">
+          <motion.div
+            className="w-full h-full rounded-full overflow-hidden shadow-2xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 relative"
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <img
+              src="/images/photo.jpg"
+              alt="Ashwin Thamban"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: '50% 30%' }}
+            />
+          </motion.div>
+        </div>
+      </motion.div>
+    </div>
+  );
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white dark:from-black dark:via-slate-950 dark:to-black pt-24 sm:pt-32 pb-12 sm:pb-16">
       {/* Multi-layer animated background */}
@@ -76,42 +102,9 @@ export default function Hero() {
       >
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-          {/* Top on Mobile, Right on Desktop - Professional Photo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="order-1 lg:order-2 flex items-center justify-center relative mb-4 lg:mb-0"
-          >
-            <div className="relative w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 max-w-full aspect-square">
-              {/* Photo container with gradient border */}
-              <motion.div
-                className="absolute inset-0 rounded-full p-1.5"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.6), rgba(59, 130, 246, 0.6), rgba(6, 182, 212, 0.6))',
-                }}
-              >
-                <div className="w-full h-full rounded-full bg-white dark:bg-black p-1.5 sm:p-2">
-                  <motion.div
-                    className="w-full h-full rounded-full overflow-hidden shadow-2xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 relative"
-                    whileHover={{ scale: 1.03 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <img
-                      src="/images/photo.jpg"
-                      alt="Ashwin Thamban"
-                      className="w-full h-full object-cover"
-                      style={{ objectPosition: '50% 30%' }}
-                    />
-                  </motion.div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Bottom on Mobile, Left on Desktop - Text content */}
-          <div className="order-2 lg:order-1 text-center lg:text-left">
-            {/* Badge */}
+          {/* Left Column (Desktop) / Main Stack (Mobile) */}
+          <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
+            {/* 1. Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -126,7 +119,17 @@ export default function Hero() {
               <span className="text-xs sm:text-sm font-bold gradient-text">Open to opportunities</span>
             </motion.div>
 
-            {/* Main heading */}
+            {/* 2. Profile Photo (Visible ONLY on Mobile, right below Badge) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex lg:hidden items-center justify-center mb-6 sm:mb-8"
+            >
+              <ProfilePhoto />
+            </motion.div>
+
+            {/* 3. Main heading */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -149,7 +152,7 @@ export default function Hero() {
               </motion.span>
             </motion.h1>
 
-            {/* Description */}
+            {/* 4. Description */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -160,12 +163,12 @@ export default function Hero() {
               Passionate about creating pixel-perfect user experiences.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* 5. CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 sm:mb-10"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 sm:mb-10 w-full sm:w-auto"
             >
               <motion.a
                 href="#projects"
@@ -198,7 +201,7 @@ export default function Hero() {
               </motion.a>
             </motion.div>
 
-            {/* Tech stack pills */}
+            {/* 6. Tech stack pills */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -219,6 +222,16 @@ export default function Hero() {
               ))}
             </motion.div>
           </div>
+
+          {/* Right Column (Visible ONLY on Desktop) - Professional Photo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="hidden lg:flex items-center justify-center relative"
+          >
+            <ProfilePhoto />
+          </motion.div>
 
         </div>
       </motion.div>
