@@ -2,11 +2,13 @@
 
 A high-performance, ultra-modern developer portfolio built with **Next.js 14**, **Tailwind CSS**, **Framer Motion**, and an integrated draggable AI assistant named **AshAI** powered by **Google Gemini 3.6** & **Pollinations AI**.
 
-![Portfolio Preview](https://img.shields.io/badge/Status-Live-emerald?style=for-the-badge)
+[![Live Website](https://img.shields.io/badge/🌐_Live_Site-ashwinthamban.online-purple?style=for-the-badge&logo=vercel)](https://ashwinthamban.online)
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?style=for-the-badge&logo=tailwind-css)
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-purple?style=for-the-badge&logo=framer)
 ![Google Gemini](https://img.shields.io/badge/Google_Gemini-3.6_Flash-blue?style=for-the-badge&logo=google-gemini)
+
+🔗 **Live URL**: [https://ashwinthamban.online](https://ashwinthamban.online)
 
 ---
 
@@ -78,14 +80,15 @@ When hosting your portfolio on **Vercel**:
    - **Key**: `GEMINI_API_KEY`
    - **Value**: `your_gemini_api_key`
 4. Click **Save** and trigger a **Redeploy**.
+5. Connect your domain **ashwinthamban.online** under **Project Settings ➔ Domains**.
 
 ---
 
 ## 👤 Author
 
 **Ashwin Thamban**  
-- Portfolio: [Ashwin Thamban](https://github.com/ashwwiin/portfolio)
-- GitHub: [@ashwwiin](https://github.com/ashwwiin)
+- 🌐 Live Website: [ashwinthamban.online](https://ashwinthamban.online)
+- 🐙 GitHub: [@ashwwiin](https://github.com/ashwwiin)
 
 ---
 
