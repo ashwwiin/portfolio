@@ -250,7 +250,7 @@ export default function Chatbot() {
           return <ImageBlock key={idx} alt={imgMatch[1]} src={imgMatch[2]} />;
         }
 
-        const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+        const linkRegex = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s,]+)/g;
         const parts = [];
         let lastIndex = 0;
         let match;
@@ -259,15 +259,20 @@ export default function Chatbot() {
           if (match.index > lastIndex) {
             parts.push(line.substring(lastIndex, match.index));
           }
+
+          const isMarkdown = Boolean(match[1] && match[2]);
+          const linkTitle = isMarkdown ? match[1] : match[3];
+          const linkUrl = isMarkdown ? match[2] : match[3];
+
           parts.push(
             <a
               key={match.index}
-              href={match[2]}
+              href={linkUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-purple-600 dark:text-purple-400 underline font-semibold hover:text-purple-700 inline-flex items-center gap-1"
+              className="text-purple-600 dark:text-purple-400 underline font-semibold hover:text-purple-700 dark:hover:text-purple-300 inline-flex items-center gap-1 mx-0.5"
             >
-              {match[1]} <ExternalLink className="w-3 h-3 inline" />
+              {linkTitle} <ExternalLink className="w-3 h-3 inline shrink-0" />
             </a>
           );
           lastIndex = match.index + match[0].length;
