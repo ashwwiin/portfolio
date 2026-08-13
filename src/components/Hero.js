@@ -14,7 +14,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white dark:from-black dark:via-slate-950 dark:to-black py-12 md:py-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white dark:from-black dark:via-slate-950 dark:to-black pt-28 sm:pt-32 pb-12 sm:pb-16">
       {/* Multi-layer animated background */}
       <div className="absolute inset-0 -z-10">
         {/* Large morphing blobs */}
