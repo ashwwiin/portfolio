@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import NavbarThemeSelector from "./NavbarThemeSelector";
+import { X, Menu, ArrowRight } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,8 +31,8 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 dark:bg-black/90 backdrop-blur-xl shadow-lg border-b border-slate-200/50 dark:border-slate-800/80 py-1"
-          : "bg-white/60 dark:bg-black/60 backdrop-blur-md py-2"
+          ? "bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl shadow-lg border-b border-slate-200/50 dark:border-slate-800/80 py-1.5"
+          : "bg-white/70 dark:bg-black/70 backdrop-blur-md py-2.5"
       }`}
     >
       <div className="px-4 sm:px-6 md:px-12 lg:px-16 max-w-7xl mx-auto">
@@ -72,73 +73,76 @@ export default function Navbar() {
             <NavbarThemeSelector />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-900 dark:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-              aria-label="Toggle Navigation Menu"
+              className="p-2 text-slate-900 dark:text-white rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              aria-label="Toggle Mobile Menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Menu Side Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
+            {/* Dark Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[190] lg:hidden"
               onClick={() => setMobileMenuOpen(false)}
             />
+
+            {/* Opaque Mobile Drawer */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-[280px] bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border-l border-slate-200 dark:border-slate-800 z-50 lg:hidden shadow-2xl p-6 flex flex-col justify-between"
+              transition={{ type: "spring", damping: 25, stiffness: 220 }}
+              className="fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-slate-950 text-white z-[200] lg:hidden shadow-2xl p-6 flex flex-col justify-between border-l border-slate-800/80"
             >
               <div>
-                <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
-                  <span className="font-bold text-sm text-slate-900 dark:text-white">Navigation</span>
+                {/* Drawer Header */}
+                <div className="flex items-center justify-between pb-4 border-b border-slate-800/80">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+                    <span className="font-bold text-sm text-white uppercase tracking-wider">Navigation</span>
+                  </div>
                   <button
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"
+                    className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 transition-colors"
                   >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    <X className="w-5 h-5" />
                   </button>
                 </div>
 
-                <div className="flex flex-col gap-4 mt-6">
+                {/* Nav Links */}
+                <div className="flex flex-col gap-3 mt-6">
                   {navLinks.map((link) => (
                     <Link key={link.href} href={link.href}>
                       <div
                         onClick={() => setMobileMenuOpen(false)}
-                        className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors py-1"
+                        className="px-4 py-3 rounded-xl bg-slate-900/60 hover:bg-slate-800 text-slate-200 hover:text-white font-semibold text-sm transition-all border border-slate-800/50 hover:border-purple-500/50 flex items-center justify-between group"
                       >
-                        {link.label}
+                        <span>{link.label}</span>
+                        <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-purple-400 group-hover:translate-x-1 transition-all" />
                       </div>
                     </Link>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
+              {/* Drawer Footer CTA */}
+              <div className="pt-4 border-t border-slate-800/80 flex flex-col gap-3">
                 <Link
                   href="#contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full block px-6 py-3 btn-primary text-center font-bold text-sm rounded-xl"
+                  className="w-full py-3.5 btn-primary text-center font-bold text-sm rounded-xl shadow-lg flex items-center justify-center gap-2"
                 >
-                  Hire Me
+                  <span>Hire Me</span>
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </motion.div>
