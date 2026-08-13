@@ -7,12 +7,11 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact"; // New Import
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
-import ThemeToggle from "@/components/ThemeToggle";
+import Chatbot from "@/components/Chatbot";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
-      <ThemeToggle />
       <Navbar />
       
       <div id="about"><Reveal><Hero /></Reveal></div>
@@ -25,6 +24,7 @@ export default function Home() {
       <Reveal><Contact /></Reveal>
       
       <Footer />
+      <Chatbot />
     </main>
   );
 }
